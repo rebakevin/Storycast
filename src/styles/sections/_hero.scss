@@ -1,0 +1,29 @@
+@use '../tokens' as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: $space-l clamp(1.5rem, 5vw, 4.5rem);
+  align-items: center;
+  max-width: $content-width;
+  margin-inline: auto;
+  padding: $section-padding $gutter;
+
+  &__eyebrow {
+    @include eyebrow;
+    margin-bottom: 1.125rem;
+    color: $gold;
+  }
+
+  &__title {
+    font-size: clamp(3.25rem, 11vw, 8rem);
+    line-height: 0.95;
+  }
+
+  &__tagline {
+    max-width: 30ch;
+    margin-block: $space-m 1.75rem;
+    font-size: clamp(1.375rem, 3vw, 2rem);
+    line-height: 1.3;
+  }
+}

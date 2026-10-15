@@ -1,0 +1,16 @@
+@use '../tokens' as *;
+
+.access-callout {
+  display: grid;
+  justify-items: center;
+  gap: $space-s;
+  padding: clamp(3rem, 9vw, 7.5rem) $gutter;
+  text-align: center;
+
+  &__title {
+    max-width: 24ch;
+    font-size: clamp(1.5rem, 3.5vw, 2.375rem);
+    font-style: italic;
+    font-weight: 400;
+  }
+}
