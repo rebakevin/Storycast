@@ -1,0 +1,8 @@
+@use 'styles-config/tokens' as *;
+
+.events {
+  max-width: 38.75rem;
+  margin-inline: auto;
+  padding-inline: $gutter;
+  box-sizing: content-box;
+}

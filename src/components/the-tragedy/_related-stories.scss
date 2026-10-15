@@ -1,0 +1,45 @@
+@use 'styles-config/tokens' as *;
+
+.related-stories {
+  padding: clamp(2rem, 6vw, 4.5rem) $gutter;
+  border-top: $border;
+
+  &__inner {
+    max-width: 56.25rem;
+    margin-inline: auto;
+  }
+
+  &__title {
+    margin-bottom: $space-m;
+    font-size: clamp(1.625rem, 3.4vw, 2.375rem);
+  }
+
+  &__list {
+    margin: 0 0 0.75rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.75rem), 1fr));
+    gap: 0.25rem $space-m;
+    padding-block: $space-s;
+    border-top: $border;
+
+    &:last-child {
+      border-bottom: $border;
+    }
+  }
+
+  &__name {
+    font-size: 1.625rem;
+    font-style: italic;
+  }
+
+  &__detail {
+    color: $ink-soft;
+    font-family: $font-sans;
+    font-size: 0.875rem;
+  }
+}

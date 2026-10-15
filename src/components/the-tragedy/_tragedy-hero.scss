@@ -1,0 +1,19 @@
+@use 'styles-config/tokens' as *;
+
+.tragedy-hero {
+  max-width: 47.5rem;
+  margin-inline: auto;
+  padding: clamp(3rem, 10vw, 8rem) $gutter clamp(2rem, 6vw, 4.5rem);
+  text-align: center;
+
+  &__eyebrow {
+    @include eyebrow;
+    margin-bottom: $space-s;
+    color: $gold;
+  }
+
+  &__title {
+    font-size: clamp(2.75rem, 8vw, 6rem);
+    line-height: 1;
+  }
+}

@@ -1,0 +1,36 @@
+@use 'styles-config/tokens' as *;
+
+.ending {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(3.5rem, 10vw, 8.5rem) $gutter;
+  text-align: center;
+
+  &__art {
+    width: min(100%, 28.75rem);
+  }
+
+  &__quote {
+    display: grid;
+    gap: $space-s;
+    margin: 0;
+  }
+
+  &__text {
+    max-width: 22ch;
+    margin: 0;
+    font-size: clamp(1.625rem, 4vw, 3.125rem);
+    font-style: italic;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  &__source {
+    color: $ink-soft;
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}

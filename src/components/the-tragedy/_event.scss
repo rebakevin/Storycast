@@ -1,0 +1,16 @@
+@use 'styles-config/tokens' as *;
+
+.event {
+  padding-block: clamp(1.75rem, 5vw, 3.5rem);
+  border-top: $border;
+
+  &__title {
+    margin-bottom: 0.875rem;
+    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  }
+
+  &__text {
+    font-size: clamp(1.25rem, 2.1vw, 1.4375rem);
+    line-height: 1.6;
+  }
+}
