@@ -20,11 +20,17 @@ h1,
 h2,
 h3,
 p,
-ol {
+ol,
+ul,
+dl,
+dd,
+figure,
+blockquote {
   margin: 0;
 }
 
-ol {
+ol,
+ul {
   padding: 0;
   list-style: none;
 }
@@ -150,6 +156,38 @@ svg {
   text-underline-offset: 0.375rem;
   text-transform: uppercase;
 }
+.text-link:hover {
+  color: #1d1b1a;
+}
+
+.lovers {
+  overflow: visible;
+}
+.lovers__montague {
+  fill: #1d1b1a;
+}
+.lovers__capulet {
+  fill: none;
+  stroke: #8c1c2b;
+  stroke-width: 3;
+}
+
+.transcript {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.875rem;
+}
+.transcript__toggle {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: #8c1c2b;
+  font-weight: 600;
+  cursor: pointer;
+}
+.transcript__text {
+  max-width: 60ch;
+  line-height: 1.55;
+}
 
 .hero {
   display: grid;
@@ -178,15 +216,6 @@ svg {
   margin-block: 1.5rem 1.75rem;
   font-size: clamp(1.375rem, 3vw, 2rem);
   line-height: 1.3;
-}
-
-.lovers__montague {
-  fill: #1d1b1a;
-}
-.lovers__capulet {
-  fill: none;
-  stroke: #8c1c2b;
-  stroke-width: 3;
 }
 
 .featured-stories {
@@ -269,6 +298,543 @@ svg {
   display: flex;
   align-items: center;
   min-height: 2.75rem;
+  color: #4a4541;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.875rem;
+}
+
+.chapter-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  border-bottom: 1px solid #1d1b1a;
+}
+.chapter-header__title {
+  font-size: 1.625rem;
+  line-height: 2.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.chapter-header__title em {
+  color: #8c1c2b;
+  font-weight: 400;
+}
+.chapter-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.chapter-header__nav a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: #4a4541;
+  text-decoration: none;
+}
+.chapter-header__nav a:hover {
+  color: #8c1c2b;
+}
+.chapter-header__nav a[aria-current=page] {
+  color: #1d1b1a;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.5rem;
+}
+
+.chapter-next {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: clamp(3rem, 9vw, 8rem) clamp(1.25rem, 5vw, 4rem);
+  text-align: center;
+}
+.chapter-next__lead {
+  font-size: clamp(1.5rem, 3.2vw, 2.375rem);
+  font-style: italic;
+  font-weight: 400;
+}
+.chapter-next__link {
+  color: #1d1b1a;
+  font-size: clamp(2.125rem, 6vw, 4.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-decoration-color: #8c1c2b;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.625rem;
+}
+.chapter-next__link:hover {
+  color: #8c1c2b;
+}
+.chapter-next--dark {
+  background: #1d1b1a;
+  border-top: 1px solid #1d1b1a;
+  color: #f3ebdb;
+}
+.chapter-next--dark .chapter-next__link {
+  color: #f3ebdb;
+  text-decoration-color: #d9b25a;
+}
+.chapter-next--dark .chapter-next__link:hover {
+  color: #d9b25a;
+}
+
+.story-hero {
+  display: grid;
+  border-bottom: 1px solid #1d1b1a;
+}
+.story-hero__art {
+  width: 100%;
+  max-width: 45rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem) 0;
+}
+.story-hero__eyebrow {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: clamp(1rem, 3vw, 2.5rem);
+  color: #6b4f12;
+  text-align: center;
+}
+.story-hero__houses {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.625rem;
+  font-size: clamp(1.375rem, 3vw, 2.125rem);
+  font-style: italic;
+}
+.story-hero__houses span:last-child {
+  color: #8c1c2b;
+}
+.story-hero__intro {
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  margin-top: clamp(1.75rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem);
+  border-top: 1px solid #1d1b1a;
+  text-align: center;
+}
+.story-hero__title {
+  font-size: clamp(3.25rem, 12vw, 9.375rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+.story-hero__title em {
+  color: #8a6a1f;
+}
+.story-hero__tagline {
+  max-width: 34ch;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.35;
+}
+
+.film {
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem) 0;
+}
+.film__figure {
+  display: grid;
+  gap: 1.5rem;
+}
+.film__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #1d1b1a;
+  border: 1px solid #1d1b1a;
+}
+.film__eyebrow {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #6b4f12;
+}
+.film__title {
+  margin-bottom: 0.625rem;
+  font-size: clamp(1.625rem, 3.4vw, 2.5rem);
+  line-height: 1.1;
+}
+.film__summary {
+  max-width: 52ch;
+  margin-bottom: 0.625rem;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.world {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
+  gap: 2rem clamp(1.5rem, 6vw, 5rem);
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+}
+.world__eyebrow {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #6b4f12;
+}
+.world__title {
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+  line-height: 1.05;
+}
+.world__text {
+  align-self: end;
+  font-size: clamp(1.25rem, 2.2vw, 1.5625rem);
+  line-height: 1.5;
+}
+.world__houses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.25rem), 1fr));
+  grid-column: 1/-1;
+  border-top: 1px solid #1d1b1a;
+}
+
+.house {
+  padding: 1.75rem;
+  border-bottom: 1px solid #1d1b1a;
+}
+.house__name {
+  margin-bottom: 0.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+.house__tag {
+  margin-bottom: 0.75rem;
+  color: #4a4541;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.house__text {
+  font-size: 1.3125rem;
+  line-height: 1.45;
+}
+.house--ink {
+  padding-left: 0;
+}
+.house--crimson {
+  padding-right: 0;
+  text-align: right;
+}
+.house--crimson .house__name,
+.house--crimson .house__tag {
+  color: #8c1c2b;
+}
+
+.characters {
+  padding: clamp(2.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  background: #ebe0c9;
+  border-top: 1px solid #1d1b1a;
+}
+.characters__inner {
+  max-width: 68.75rem;
+  margin-inline: auto;
+}
+.characters__title {
+  margin-bottom: 2rem;
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+}
+
+.character {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.25rem), 1fr));
+  gap: 0.5rem clamp(1.25rem, 5vw, 4rem);
+  padding-block: 1.5rem;
+  border-top: 1px solid #1d1b1a;
+}
+.character:nth-child(even) {
+  margin-left: clamp(0rem, 6vw, 5rem);
+}
+.character__number {
+  color: #6b4f12;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+.character__name {
+  margin-top: 0.25rem;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.05;
+}
+.character__role {
+  margin-top: 0.375rem;
+  color: #4a4541;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.character__text {
+  max-width: 46ch;
+  font-size: clamp(1.1875rem, 2vw, 1.4375rem);
+  line-height: 1.45;
+}
+
+.journey-hero {
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+}
+.journey-hero__eyebrow {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #6b4f12;
+}
+.journey-hero__title {
+  font-size: clamp(2.875rem, 9vw, 7rem);
+  line-height: 0.98;
+}
+.journey-hero__intro {
+  max-width: 36ch;
+  margin-top: 1.25rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.35;
+}
+
+.scenes {
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+.scene {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+  gap: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  padding-block: clamp(1.75rem, 5vw, 4rem);
+  border-top: 1px solid #1d1b1a;
+}
+.scene:nth-child(even) {
+  margin-left: clamp(0rem, 8vw, 6.875rem);
+}
+.scene:nth-child(even) .scene__figure {
+  order: 1;
+}
+.scene__figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: 26.25rem;
+}
+.scene__caption {
+  color: #4a4541;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.scene__number {
+  color: #8a6a1f;
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-style: italic;
+  line-height: 1;
+}
+.scene__title {
+  margin: 0.375rem 0 0.875rem;
+  font-size: clamp(1.875rem, 4vw, 3.125rem);
+  line-height: 1.05;
+}
+.scene__text {
+  max-width: 44ch;
+  font-size: clamp(1.25rem, 2.1vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.tragedy-hero {
+  max-width: 47.5rem;
+  margin-inline: auto;
+  padding: clamp(3rem, 10vw, 8rem) clamp(1.25rem, 5vw, 4rem) clamp(2rem, 6vw, 4.5rem);
+  text-align: center;
+}
+.tragedy-hero__eyebrow {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #6b4f12;
+}
+.tragedy-hero__title {
+  font-size: clamp(2.75rem, 8vw, 6rem);
+  line-height: 1;
+}
+
+.events {
+  max-width: 38.75rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+  box-sizing: content-box;
+}
+
+.event {
+  padding-block: clamp(1.75rem, 5vw, 3.5rem);
+  border-top: 1px solid #1d1b1a;
+}
+.event__title {
+  margin-bottom: 0.875rem;
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+}
+.event__text {
+  font-size: clamp(1.25rem, 2.1vw, 1.4375rem);
+  line-height: 1.6;
+}
+
+.meaning {
+  padding: clamp(2.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  background: #ebe0c9;
+  border-block: 1px solid #1d1b1a;
+}
+.meaning__inner {
+  max-width: 56.25rem;
+  margin-inline: auto;
+}
+.meaning__title {
+  margin-bottom: 2rem;
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+}
+
+.theme {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
+  gap: 0.375rem clamp(1.25rem, 5vw, 4rem);
+  padding-block: 1.375rem;
+  border-top: 1px solid #1d1b1a;
+}
+.theme__term {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-style: italic;
+}
+.theme__text {
+  grid-column: span 2;
+  max-width: 48ch;
+  margin: 0;
+  font-size: clamp(1.1875rem, 2vw, 1.375rem);
+  line-height: 1.5;
+}
+.theme--crimson .theme__term {
+  color: #8c1c2b;
+}
+
+.audio {
+  max-width: 38.75rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 4rem) 0;
+  box-sizing: content-box;
+  text-align: center;
+}
+.audio__eyebrow {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.625rem;
+  color: #6b4f12;
+}
+.audio__title {
+  margin-bottom: 0.875rem;
+  font-size: clamp(1.625rem, 3.4vw, 2.5rem);
+}
+.audio__player {
+  width: 100%;
+}
+.audio .transcript {
+  margin-top: 0.375rem;
+  text-align: left;
+}
+
+.ending {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(3.5rem, 10vw, 8.5rem) clamp(1.25rem, 5vw, 4rem);
+  text-align: center;
+}
+.ending__art {
+  width: min(100%, 28.75rem);
+}
+.ending__quote {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+.ending__text {
+  max-width: 22ch;
+  margin: 0;
+  font-size: clamp(1.625rem, 4vw, 3.125rem);
+  font-style: italic;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.ending__source {
+  color: #4a4541;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.related-stories {
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 4rem);
+  border-top: 1px solid #1d1b1a;
+}
+.related-stories__inner {
+  max-width: 56.25rem;
+  margin-inline: auto;
+}
+.related-stories__title {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.625rem, 3.4vw, 2.375rem);
+}
+.related-stories__list {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+.related-stories__item {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.75rem), 1fr));
+  gap: 0.25rem 1.5rem;
+  padding-block: 1rem;
+  border-top: 1px solid #1d1b1a;
+}
+.related-stories__item:last-child {
+  border-bottom: 1px solid #1d1b1a;
+}
+.related-stories__name {
+  font-size: 1.625rem;
+  font-style: italic;
+}
+.related-stories__detail {
   color: #4a4541;
   font-family: "Hanken Grotesk", sans-serif;
   font-size: 0.875rem;
