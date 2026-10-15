@@ -45,7 +45,7 @@ src/
     story/            the-story/  the-journey/  the-tragedy/  (chapters)
   components/         flat: one folder per page or area, no nesting
     layout/  ui/      shared: header, footer, text-link, lovers, transcript
-    home/  story/  the-story/  the-journey/  the-tragedy/
+    home/  about/  story/  the-story/  the-journey/  the-tragedy/
   styles-config/      shared Sass: tokens/, base/, main.scss
 media/                video, audio and caption files
 scripts/
