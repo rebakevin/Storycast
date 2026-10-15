@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const srcDir = path.join(__dirname, '..', 'src');
-const includeTag = /<include\s+([^>]*?)\/>/g;
+const includeTag = /<include\s+([^>]*?)\/?>(?:\s*<\/include>)?/g;
 const attribute = /([\w-]+)="([^"]*)"/g;
 
 function readAttributes(text) {
