@@ -1,0 +1,10 @@
+@use 'styles/tokens' as *;
+
+.story-card__status {
+  display: flex;
+  align-items: center;
+  min-height: $tap-target;
+  color: $ink-soft;
+  font-family: $font-sans;
+  font-size: 0.875rem;
+}

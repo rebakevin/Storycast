@@ -1,4 +1,4 @@
-@use '../tokens' as *;
+@use 'styles/tokens' as *;
 
 .story-card-slot {
   container-type: inline-size;
@@ -38,15 +38,6 @@
     font-size: 0.8125rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-  }
-
-  &__status {
-    display: flex;
-    align-items: center;
-    min-height: $tap-target;
-    color: $ink-soft;
-    font-family: $font-sans;
-    font-size: 0.875rem;
   }
 
   &--available &__title {

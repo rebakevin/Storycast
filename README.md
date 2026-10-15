@@ -41,8 +41,11 @@ the output.
 src/
   main.html           template: head, header, pages, footer
   pages/              home, story, about
-  components/         small .html pieces (layout/, home/)
-  styles/             Sass (tokens, base, layout, components, sections)
+  components/         each component: name.html + _name.scss side by side
+    layout/           site-header, site-footer
+    ui/               text-link
+    home/             hero, featured-stories, story-card, story-card-soon, access-callout
+  styles/             shared Sass: tokens/, base/, main.scss
 scripts/
   build.js            bundles src/ into index.html (no libraries)
   router.js           runs in the browser, shows one page at a time via the URL hash
@@ -50,25 +53,24 @@ scripts/
 
 ## Components
 
+Every component is a pair of files in the same folder: `hero.html` and `_hero.scss`.
+
 Include a component with a self-closing tag. Paths are relative to `src/`:
 
 ```html
-
-<include src="components/home/story-card.html" title="Macbeth" number="02"/>
+<include src="components/ui/text-link.html" href="#/story" label="Read the story" />
 ```
 
-Attributes fill `{{ title }}`-style placeholders inside the component. Pages and components can include other
-components.
+Attributes fill `{{ href }}`-style placeholders inside the component. Pages and components can include other components.
 
-To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and
-link to `#/foo`.
+To add a component: create `name.html` and `_name.scss` in a components folder, include the HTML where it is used, and `@use` the SCSS in `src/styles/main.scss`.
 
-## Styles
+To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
 
-Add a partial in the right folder (e.g. `src/styles/components/_foo.scss`), then `@use` it in `src/styles/main.scss`.
+Use tokens from `styles/tokens` in component styles: `@use 'styles/tokens' as *;`.
 
 ## Conventions
 
 - Class names follow BEM (`story-card__title`, `story-card--available`).
-- Use tokens from `tokens/` instead of hardcoded colors or spacing.
+- Use tokens from `styles/tokens/` instead of hardcoded colors or spacing.
 - Meet WCAG 2.1 AA: visible focus, keyboard support, captions and transcripts for any audio/video.

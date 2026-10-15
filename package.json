@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "build": "npm run build:css && npm run build:html",
-    "build:css": "sass src/styles/main.scss css/main.css --no-source-map",
+    "build:css": "sass --load-path=src src/styles-config/main.scss css/main.css --no-source-map",
     "build:html": "node scripts/build.js",
-    "watch": "sass --watch src/styles/main.scss css/main.css"
+    "watch": "sass --load-path=src --watch src/styles-config/main.scss css/main.css"
   },
   "devDependencies": {
     "sass": "^1.80.0"
