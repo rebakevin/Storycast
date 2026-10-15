@@ -23,12 +23,16 @@
 
   &__nav {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1.25rem;
+    gap: clamp(0.5rem, 3vw, 1.25rem);
     font-family: $font-sans;
-    font-size: 0.8125rem;
-    letter-spacing: 0.12em;
+    font-size: clamp(0.5625rem, 2.7vw, 0.8125rem);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    white-space: nowrap;
+
+    @media (min-width: 40rem) {
+      letter-spacing: 0.12em;
+    }
 
     a {
       display: flex;
