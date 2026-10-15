@@ -1,0 +1,15 @@
+@use 'styles-config/tokens' as *;
+
+.lovers {
+  overflow: visible;
+
+  &__montague {
+    fill: $ink;
+  }
+
+  &__capulet {
+    fill: none;
+    stroke: $crimson;
+    stroke-width: 3;
+  }
+}
