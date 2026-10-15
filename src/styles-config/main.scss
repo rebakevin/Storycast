@@ -5,9 +5,34 @@
 @use 'components/layout/site-footer';
 
 @use 'components/ui/text-link';
+@use 'components/ui/lovers';
+@use 'components/ui/transcript';
 
 @use 'components/home/hero';
 @use 'components/home/featured-stories';
 @use 'components/home/access-callout';
 @use 'components/home/story-card';
 @use 'components/home/story-card-soon';
+
+@use 'components/story/chapter-header';
+@use 'components/story/chapter-next';
+
+@use 'components/the-story/story-hero';
+@use 'components/the-story/film';
+@use 'components/the-story/world';
+@use 'components/the-story/house';
+@use 'components/the-story/characters';
+@use 'components/the-story/character';
+
+@use 'components/the-journey/journey-hero';
+@use 'components/the-journey/scenes';
+@use 'components/the-journey/scene';
+
+@use 'components/the-tragedy/tragedy-hero';
+@use 'components/the-tragedy/events';
+@use 'components/the-tragedy/event';
+@use 'components/the-tragedy/meaning';
+@use 'components/the-tragedy/theme';
+@use 'components/the-tragedy/audio';
+@use 'components/the-tragedy/ending';
+@use 'components/the-tragedy/related-stories';

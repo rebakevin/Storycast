@@ -27,15 +27,3 @@
     line-height: 1.3;
   }
 }
-
-.lovers {
-  &__montague {
-    fill: $ink;
-  }
-
-  &__capulet {
-    fill: none;
-    stroke: $crimson;
-    stroke-width: 3;
-  }
-}

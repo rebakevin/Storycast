@@ -22,11 +22,17 @@ h1,
 h2,
 h3,
 p,
-ol {
+ol,
+ul,
+dl,
+dd,
+figure,
+blockquote {
   margin: 0;
 }
 
-ol {
+ol,
+ul {
   padding: 0;
   list-style: none;
 }
