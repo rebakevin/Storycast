@@ -37,9 +37,10 @@
 
   <figure>
     <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="A charcoal disc and a crimson ring, two worlds standing apart">
-      <circle class="lovers__montague" cx="44" cy="50" r="40"/>
-      <circle class="lovers__capulet" cx="196" cy="50" r="40"/>
-    </svg>
+  <circle class="lovers__montague" cx="44" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="196" cy="50" r="40"/>
+</svg>
+
   </figure>
 </section>
 
@@ -104,8 +105,324 @@
 </div>
 
     <div data-page="story" hidden>
-  <h1>The Story</h1>
-  <p>Coming soon.</p>
+  <header class="chapter-header">
+  <p class="chapter-header__title">Romeo <em>&amp;</em> Juliet</p>
+  <nav class="chapter-header__nav" aria-label="Story chapters">
+    <a href="#/story/the-story">I · The Story</a>
+    <a href="#/story/the-journey">II · The Journey</a>
+    <a href="#/story/the-tragedy">III · The Tragedy</a>
+  </nav>
+</header>
+
+  <div data-page="story/the-story" hidden>
+  <section class="story-hero" aria-labelledby="story-hero-title">
+  <div class="story-hero__art">
+    <p class="story-hero__eyebrow">Verona · A tragedy in five acts</p>
+    <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="Romeo in charcoal line and Juliet in crimson line, standing far apart, reaching toward each other">
+  <circle class="lovers__montague" cx="44" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="196" cy="50" r="40"/>
+</svg>
+
+    <p class="story-hero__houses"><span>Montague</span><span>Capulet</span></p>
+  </div>
+
+  <div class="story-hero__intro">
+    <h1 class="story-hero__title" id="story-hero-title">Romeo <em>&amp;</em> Juliet</h1>
+    <p class="story-hero__tagline">Two houses, one ancient grudge, and a love that could not wait for peace.</p>
+    <a class="text-link" href="#verona">Begin the story ↓</a>
+
+  </div>
+</section>
+
+  <section class="film" aria-labelledby="film-title">
+  <figure class="film__figure">
+    <video class="film__video" controls preload="none" aria-labelledby="film-title">
+      <source src="media/verona.mp4" type="video/mp4">
+      <track kind="captions" src="media/verona.vtt" srclang="en" label="English" default>
+      Your browser does not support video.
+    </video>
+    <figcaption>
+      <p class="film__eyebrow">Watch · 1 min</p>
+      <h2 class="film__title" id="film-title">Verona and the feud</h2>
+      <p class="film__summary">A short film: the city, the two houses, and the quarrel that started it all.</p>
+      <details class="transcript">
+  <summary class="transcript__toggle">Read the transcript</summary>
+  <p class="transcript__text">Verona, sixteenth-century Italy. Two noble houses, Montague and Capulet, have fought for generations. Their servants brawl in the market square, and the Prince threatens death to anyone who disturbs the peace again.</p>
+</details>
+
+    </figcaption>
+  </figure>
+</section>
+
+  <section class="world" id="verona" aria-labelledby="world-title">
+  <div>
+    <p class="world__eyebrow">The world of Verona</p>
+    <h2 class="world__title" id="world-title">A city that cannot forget a quarrel.</h2>
+  </div>
+  <p class="world__text">Written by William Shakespeare in the 1590s, <em>Romeo and Juliet</em> is set in fair Verona, where two noble families have fought for generations. Their servants brawl in the streets; their children inherit the quarrel before they can understand it.</p>
+
+  <div class="world__houses">
+    <article class="house house--ink">
+  <h3 class="house__name">The Montagues</h3>
+  <p class="house__tag">Charcoal line · Romeo</p>
+  <p class="house__text">Romeo's house. Hot-blooded and loyal, they answer insult with steel.</p>
+</article>
+
+    <article class="house house--crimson">
+  <h3 class="house__name">The Capulets</h3>
+  <p class="house__tag">Crimson line · Juliet</p>
+  <p class="house__text">Juliet's house. Proud and wealthy, they guard their name above their daughter.</p>
+</article>
+
+  </div>
+</section>
+
+  <section class="characters" aria-labelledby="characters-title">
+  <div class="characters__inner">
+    <h2 class="characters__title" id="characters-title">Meet the <em>characters</em></h2>
+
+    <ol class="characters__list">
+      <li class="character">
+  <div>
+    <span class="character__number">I</span>
+    <h3 class="character__name">Romeo Montague</h3>
+    <p class="character__role">The lover</p>
+  </div>
+  <p class="character__text">A young, restless romantic, sick with love for a girl who does not love him — until he meets Juliet and forgets her entirely.</p>
+</li>
+
+      <li class="character">
+  <div>
+    <span class="character__number">II</span>
+    <h3 class="character__name">Juliet Capulet</h3>
+    <p class="character__role">The daughter</p>
+  </div>
+  <p class="character__text">Not yet fourteen, sharp-minded and brave. She is the first to say what love will cost, and the first to pay it.</p>
+</li>
+
+      <li class="character">
+  <div>
+    <span class="character__number">III</span>
+    <h3 class="character__name">Mercutio</h3>
+    <p class="character__role">The friend</p>
+  </div>
+  <p class="character__text">Romeo's quick-witted kinsman of the Prince. He mocks love, mocks fate, and is never far from a quarrel.</p>
+</li>
+
+      <li class="character">
+  <div>
+    <span class="character__number">IV</span>
+    <h3 class="character__name">Tybalt</h3>
+    <p class="character__role">The rival</p>
+  </div>
+  <p class="character__text">Juliet's fiery cousin. For him the feud is a point of honour, and Romeo's presence at the feast is an insult.</p>
+</li>
+
+      <li class="character">
+  <div>
+    <span class="character__number">V</span>
+    <h3 class="character__name">Friar Laurence</h3>
+    <p class="character__role">The confessor</p>
+  </div>
+  <p class="character__text">A gentle priest and herbalist who hopes a secret marriage might mend the city. His good intentions set the tragedy in motion.</p>
+</li>
+
+    </ol>
+  </div>
+</section>
+
+  <section class="chapter-next chapter-next--light" aria-labelledby="next-journey">
+  <h2 class="chapter-next__lead" id="next-journey">Now, follow them out of the feast.</h2>
+  <a class="chapter-next__link" href="#/story/the-journey">II · The Journey <span aria-hidden="true">→</span></a>
+</section>
+
+</div>
+
+  <div data-page="story/the-journey" hidden>
+  <section class="journey-hero" aria-labelledby="journey-title">
+  <p class="journey-hero__eyebrow">Chapter II · Four scenes</p>
+  <h1 class="journey-hero__title" id="journey-title">The <em>Journey</em></h1>
+  <p class="journey-hero__intro">Romeo in charcoal, Juliet in crimson. Watch how close they stand in each scene.</p>
+</section>
+
+  <ol class="scenes">
+  <li class="scene">
+  <figure class="scene__figure">
+    <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="Romeo and Juliet kissing at the feast">
+  <circle class="lovers__montague" cx="80" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="160" cy="50" r="40"/>
+</svg>
+
+    <figcaption class="scene__caption">Act I · A masked feast · First kiss</figcaption>
+  </figure>
+  <article class="scene__body">
+    <span class="scene__number">i.</span>
+    <h2 class="scene__title">The Capulet party</h2>
+    <p class="scene__text">Romeo slips into the Capulet feast in disguise, hoping only to glimpse Rosaline. Instead he meets Juliet. They speak in a shared sonnet, and kiss before either learns the other’s name.</p>
+  </article>
+</li>
+
+  <li class="scene">
+  <figure class="scene__figure">
+    <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="Juliet on her balcony, Romeo below reaching up to her">
+  <circle class="lovers__montague" cx="66" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="174" cy="50" r="40"/>
+</svg>
+
+    <figcaption class="scene__caption">Act II · Night, an orchard · Within reach</figcaption>
+  </figure>
+  <article class="scene__body">
+    <span class="scene__number">ii.</span>
+    <h2 class="scene__title">The balcony &amp; the secret marriage</h2>
+    <p class="scene__text">Beneath her window Romeo overhears Juliet wish away her name. They vow to love in spite of it. Next day Friar Laurence marries them in secret, hoping it will end the feud.</p>
+  </article>
+</li>
+
+  <li class="scene">
+  <figure class="scene__figure">
+    <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="Romeo kneeling in grief beside a fallen sword">
+  <circle class="lovers__montague" cx="98" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="142" cy="50" r="40"/>
+</svg>
+
+    <figcaption class="scene__caption">Act III · A hot noon · Romeo alone</figcaption>
+  </figure>
+  <article class="scene__body">
+    <span class="scene__number">iii.</span>
+    <h2 class="scene__title">Mercutio &amp; Tybalt fall</h2>
+    <p class="scene__text">Tybalt challenges Romeo, who refuses to fight his new kinsman. Mercutio fights instead and is killed. Blind with grief, Romeo kills Tybalt, and the feud claims a new debt.</p>
+  </article>
+</li>
+
+  <li class="scene">
+  <figure class="scene__figure">
+    <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="Juliet at her window, Romeo walking away into exile">
+  <circle class="lovers__montague" cx="40" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="200" cy="50" r="40"/>
+</svg>
+
+    <figcaption class="scene__caption">Act III–IV · Exile · Farthest apart</figcaption>
+  </figure>
+  <article class="scene__body">
+    <span class="scene__number">iv.</span>
+    <h2 class="scene__title">Banishment &amp; the desperate plan</h2>
+    <p class="scene__text">The Prince spares Romeo’s life but banishes him from Verona. With Juliet promised to another man, Friar Laurence offers a way out: a potion that will make her seem dead, and a letter to bring Romeo home.</p>
+  </article>
+</li>
+
+</ol>
+
+  <section class="chapter-next chapter-next--dark" aria-labelledby="next-tragedy">
+  <h2 class="chapter-next__lead" id="next-tragedy">A letter is sent. It does not arrive.</h2>
+  <a class="chapter-next__link" href="#/story/the-tragedy">III · The Tragedy <span aria-hidden="true">→</span></a>
+</section>
+
+</div>
+
+  <div data-page="story/the-tragedy" hidden>
+  <section class="tragedy-hero" aria-labelledby="tragedy-title">
+  <p class="tragedy-hero__eyebrow">Chapter III · The last night</p>
+  <h1 class="tragedy-hero__title" id="tragedy-title">The <em>Tragedy</em></h1>
+</section>
+
+  <div class="events">
+  <article class="event" aria-labelledby="event-plan">
+  <h2 class="event__title" id="event-plan">Juliet's plan</h2>
+  <p class="event__text">Juliet drinks the Friar's potion and is laid in the Capulet tomb, cold as stone. But the messenger carrying Laurence's letter is stopped by plague quarantine. Romeo never reads it.</p>
+</article>
+
+  <article class="event" aria-labelledby="event-deaths">
+  <h2 class="event__title" id="event-deaths">The final tragedy</h2>
+  <p class="event__text">Romeo hears only that Juliet is dead. He buys poison, breaks into the tomb, and drinks beside her. Moments later she wakes, finds him lifeless, and takes his dagger. Both die for a love that came minutes too late.</p>
+</article>
+
+  <article class="event" aria-labelledby="event-peace">
+  <h2 class="event__title" id="event-peace">Reconciliation</h2>
+  <p class="event__text">At dawn, the Prince gathers both houses at the tomb. Montague and Capulet, finally face to face, see what their hatred has cost. They clasp hands and promise statues of gold for the children they lost.</p>
+</article>
+
+</div>
+
+  <section class="meaning" aria-labelledby="meaning-title">
+  <div class="meaning__inner">
+    <h2 class="meaning__title" id="meaning-title">What the story <em>means</em></h2>
+    <dl>
+      <div class="theme theme--crimson">
+  <dt class="theme__term">Love</dt>
+  <dd class="theme__text">It arrives at first sight and outruns every rule. Love gives Romeo and Juliet courage, and it gives them no time.</dd>
+</div>
+
+      <div class="theme theme--ink">
+  <dt class="theme__term">Fate</dt>
+  <dd class="theme__text">A plague, a missed letter, a minute’s delay. The play calls its lovers star-crossed, yet each small failure was human.</dd>
+</div>
+
+      <div class="theme theme--crimson">
+  <dt class="theme__term">Hatred</dt>
+  <dd class="theme__text">An old grudge no one can explain. It is inherited, not chosen, and it poisons everyone it touches.</dd>
+</div>
+
+      <div class="theme theme--ink">
+  <dt class="theme__term">Consequences</dt>
+  <dd class="theme__text">Every choice, from a duel to a secret, adds weight. Peace comes only after the cost is counted in children.</dd>
+</div>
+
+    </dl>
+  </div>
+</section>
+
+  <section class="audio" aria-labelledby="audio-title">
+  <p class="audio__eyebrow">Listen · 1 min</p>
+  <h2 class="audio__title" id="audio-title">The Prince's last words</h2>
+  <audio class="audio__player" controls preload="none" aria-labelledby="audio-title">
+    <source src="media/finale.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+  <details class="transcript">
+  <summary class="transcript__toggle">Read the transcript</summary>
+  <p class="transcript__text">A slow strings drone. The Prince speaks over the tomb: a morning of sorrow, peace bought with two lives, and a vow that Verona will remember them.</p>
+</details>
+
+</section>
+
+  <section class="ending" aria-label="Closing words">
+  <div class="ending__art">
+    <svg class="lovers" viewBox="0 0 240 100" role="img" aria-label="Romeo and Juliet lying side by side on a tomb, hands joined">
+  <circle class="lovers__montague" cx="108" cy="50" r="40"/>
+  <circle class="lovers__capulet" cx="132" cy="50" r="40"/>
+</svg>
+
+  </div>
+  <figure class="ending__quote">
+    <blockquote class="ending__text">
+      <p>“For never was a story of more woe than this of Juliet and her Romeo.”</p>
+    </blockquote>
+    <figcaption class="ending__source">The Prince · Act V, Scene III</figcaption>
+  </figure>
+  <a class="text-link" href="#/story/the-story">↺ Return to the beginning</a>
+
+</section>
+
+  <section class="related-stories" aria-labelledby="related-title">
+  <div class="related-stories__inner">
+    <h2 class="related-stories__title" id="related-title">Related stories</h2>
+    <ul class="related-stories__list">
+      <li class="related-stories__item">
+        <span class="related-stories__name">Macbeth</span>
+        <span class="related-stories__detail">Ambition and guilt · Audio · Coming soon</span>
+      </li>
+      <li class="related-stories__item">
+        <span class="related-stories__name">A Midsummer Night's Dream</span>
+        <span class="related-stories__detail">Love misdirected · Video · Coming soon</span>
+      </li>
+    </ul>
+    <a class="text-link" href="#/home">All stories →</a>
+
+  </div>
+</section>
+
+</div>
+
 </div>
 
     <div data-page="about" hidden>
