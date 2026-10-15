@@ -7,6 +7,10 @@ Plain HTML and Sass, no framework. Design reference: `design/`, site map: `docs/
 
 ## Run the app
 
+Live site: https://rebakevin.github.io/Storycast/
+
+Or run it locally:
+
 `index.html` and `css/main.css` are generated and committed, so no build is needed to view the site.
 
 Open `index.html` in a browser, or serve the folder:
@@ -75,6 +79,12 @@ To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`
 link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
 
 Use tokens from `styles-config/tokens` in component styles: `@use 'styles-config/tokens' as *;`.
+
+## Deploy
+
+Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages.
+
+One-time setup: in the repo go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 
 ## Media
 
