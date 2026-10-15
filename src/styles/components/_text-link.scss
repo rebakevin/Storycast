@@ -1,0 +1,15 @@
+@use '../tokens' as *;
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: $tap-target;
+  color: $crimson;
+  font-family: $font-sans;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-decoration: underline;
+  text-underline-offset: 0.375rem;
+  text-transform: uppercase;
+}

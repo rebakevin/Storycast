@@ -1,0 +1,13 @@
+@use '../tokens' as *;
+
+.lovers {
+  &__montague {
+    fill: $ink;
+  }
+
+  &__capulet {
+    fill: none;
+    stroke: $crimson;
+    stroke-width: 3;
+  }
+}
