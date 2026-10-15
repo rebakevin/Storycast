@@ -1,0 +1,25 @@
+@use 'styles-config/tokens' as *;
+
+.journey-hero {
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: $section-padding $gutter clamp(1.5rem, 4vw, 3rem);
+
+  &__eyebrow {
+    @include eyebrow;
+    margin-bottom: $space-s;
+    color: $gold;
+  }
+
+  &__title {
+    font-size: clamp(2.875rem, 9vw, 7rem);
+    line-height: 0.98;
+  }
+
+  &__intro {
+    max-width: 36ch;
+    margin-top: 1.25rem;
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    line-height: 1.35;
+  }
+}

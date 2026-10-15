@@ -1,0 +1,7 @@
+@use 'styles-config/tokens' as *;
+
+.scenes {
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: 0 $gutter clamp(1.5rem, 4vw, 3rem);
+}
