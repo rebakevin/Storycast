@@ -2,7 +2,9 @@
   "name": "storycast",
   "private": true,
   "scripts": {
-    "build": "sass src/styles/main.scss css/main.css --no-source-map",
+    "build": "npm run build:css && npm run build:html",
+    "build:css": "sass src/styles/main.scss css/main.css --no-source-map",
+    "build:html": "node scripts/build.js",
     "watch": "sass --watch src/styles/main.scss css/main.css"
   },
   "devDependencies": {
