@@ -1,12 +1,13 @@
 # StoryCast
 
-StoryCast retells classic stories (starting with *Romeo & Juliet*) as chapters, film and audio, with captions and transcripts so every reader and listener can follow along.
+StoryCast retells classic stories (starting with *Romeo & Juliet*) as chapters, film and audio, with captions and
+transcripts so every reader and listener can follow along.
 
 Plain HTML and Sass, no framework. Design reference: `design/`, site map: `docs/ia.md`.
 
 ## Run the app
 
-`css/main.css` is committed, so no build is needed to view the site.
+`index.html` and `css/main.css` are generated and committed, so no build is needed to view the site.
 
 Open `index.html` in a browser, or serve the folder:
 
@@ -19,28 +20,52 @@ npx serve .
 Requires Node 18+.
 
 ```sh
-npm install        # once
-npm run watch      # recompile Sass on save
-npm run build      # one-off compile to css/main.css
+npm install          # once
+npm run build        # Sass -> css/main.css, components -> index.html
+npm run watch        # recompile Sass on save
 ```
 
-Never edit `css/main.css` by hand; commit the rebuilt file with your Sass changes.
+### Auto-generated files (do not edit by hand)
+
+| File           | Generated from                                   |
+|----------------|--------------------------------------------------|
+| `index.html`   | `src/main.html`, `src/pages/`, `src/components/` |
+| `css/main.css` | `src/styles/`                                    |
+
+Changes to these files are overwritten on the next build. Edit the sources in `src/`, run `npm run build`, and commit
+the output.
 
 ## Structure
 
 ```
-index.html
-css/main.css          compiled output
-src/styles/
-  main.scss           entry point, only @use lines
-  tokens/             colors, typography, spacing
-  base/               reset, accessibility
-  layout/             header, footer
-  components/         reusable pieces (text-link, story-card, ...)
-  sections/           page sections (hero, featured stories, ...)
+src/
+  main.html           template: head, header, pages, footer
+  pages/              home, story, about
+  components/         small .html pieces (layout/, home/)
+  styles/             Sass (tokens, base, layout, components, sections)
+scripts/
+  build.js            bundles src/ into index.html (no libraries)
+  router.js           runs in the browser, shows one page at a time via the URL hash
 ```
 
-To add a style, create a partial in the right folder (e.g. `components/_foo.scss`), then `@use` it in `main.scss`.
+## Components
+
+Include a component with a self-closing tag. Paths are relative to `src/`:
+
+```html
+
+<include src="components/home/story-card.html" title="Macbeth" number="02"/>
+```
+
+Attributes fill `{{ title }}`-style placeholders inside the component. Pages and components can include other
+components.
+
+To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and
+link to `#/foo`.
+
+## Styles
+
+Add a partial in the right folder (e.g. `src/styles/components/_foo.scss`), then `@use` it in `src/styles/main.scss`.
 
 ## Conventions
 
