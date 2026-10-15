@@ -1,0 +1,11 @@
+{
+  "name": "storycast",
+  "private": true,
+  "scripts": {
+    "build": "sass src/styles/main.scss css/main.css --no-source-map",
+    "watch": "sass --watch src/styles/main.scss css/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}
