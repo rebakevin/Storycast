@@ -1,0 +1,53 @@
+@use 'styles-config/tokens' as *;
+
+.chapter-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-xs $space-m;
+  padding: $space-m $gutter;
+  border-bottom: $border;
+
+  &__title {
+    font-size: 1.625rem;
+    line-height: $tap-target;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+
+    em {
+      color: $crimson;
+      font-weight: 400;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    a {
+      display: flex;
+      align-items: center;
+      min-height: $tap-target;
+      color: $ink-soft;
+      text-decoration: none;
+
+      &:hover {
+        color: $crimson;
+      }
+
+      &[aria-current='page'] {
+        color: $ink;
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use 'styles-config/tokens' as *;
+
+.chapter-next {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: clamp(3rem, 9vw, 8rem) $gutter;
+  text-align: center;
+
+  &__lead {
+    font-size: clamp(1.5rem, 3.2vw, 2.375rem);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  &__link {
+    color: $ink;
+    font-size: clamp(2.125rem, 6vw, 4.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+    text-decoration: underline;
+    text-decoration-color: $crimson;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.625rem;
+
+    &:hover {
+      color: $crimson;
+    }
+  }
+
+  &--dark {
+    background: $ink;
+    border-top: $border;
+    color: $paper;
+
+    .chapter-next__link {
+      color: $paper;
+      text-decoration-color: $amber-light;
+
+      &:hover {
+        color: $amber-light;
+      }
+    }
+  }
+}
