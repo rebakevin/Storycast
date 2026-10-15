@@ -1,0 +1,57 @@
+@use '../tokens' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: $space-m;
+  padding: 0.375rem $gutter;
+  background: $paper;
+  border-bottom: $border;
+  font-family: $font-sans;
+
+  &__brand,
+  &__nav a {
+    display: flex;
+    align-items: center;
+    min-height: $tap-target;
+    color: $ink;
+  }
+
+  &__brand {
+    font-family: $font-serif;
+    font-size: 1.625rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    em {
+      color: $crimson;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.25rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    a {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.5rem;
+
+      &:not([aria-current]) {
+        text-decoration: none;
+      }
+
+      &[aria-current='page'] {
+        font-weight: 600;
+      }
+    }
+  }
+}
