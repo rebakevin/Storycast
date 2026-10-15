@@ -1,0 +1,40 @@
+@use 'styles-config/tokens' as *;
+
+.house {
+  padding: 1.75rem;
+  border-bottom: $border;
+
+  &__name {
+    margin-bottom: $space-xs;
+    font-size: 1.875rem;
+    font-weight: 600;
+  }
+
+  &__tag {
+    margin-bottom: 0.75rem;
+    color: $ink-soft;
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 1.3125rem;
+    line-height: 1.45;
+  }
+
+  &--ink {
+    padding-left: 0;
+  }
+
+  &--crimson {
+    padding-right: 0;
+    text-align: right;
+
+    .house__name,
+    .house__tag {
+      color: $crimson;
+    }
+  }
+}

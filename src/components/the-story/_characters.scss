@@ -1,0 +1,17 @@
+@use 'styles-config/tokens' as *;
+
+.characters {
+  padding: $section-padding $gutter;
+  background: $paper-deep;
+  border-top: $border;
+
+  &__inner {
+    max-width: 68.75rem;
+    margin-inline: auto;
+  }
+
+  &__title {
+    margin-bottom: $space-l;
+    font-size: clamp(2.125rem, 5vw, 3.75rem);
+  }
+}
