@@ -1,0 +1,49 @@
+@use '../tokens' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: $paper;
+  color: $ink;
+  font-family: $font-serif;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+p,
+ol {
+  margin: 0;
+}
+
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+
+  em {
+    color: $crimson;
+    font-weight: 400;
+  }
+}
+
+p {
+  text-wrap: pretty;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

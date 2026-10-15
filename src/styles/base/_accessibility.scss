@@ -1,0 +1,29 @@
+@use '../tokens' as *;
+
+:focus-visible {
+  outline: 3px solid $crimson;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: $space-xs $space-s;
+  background: $ink;
+  color: $paper;
+  font-family: $font-sans;
+  transform: translateY(-100%);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
