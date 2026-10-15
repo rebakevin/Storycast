@@ -40,16 +40,20 @@ the output.
 ```
 src/
   main.html           template: head, header, pages, footer
-  pages/              home, story, about
-  components/         each component: name.html + _name.scss side by side
-    layout/           site-header, site-footer
-    ui/               text-link
-    home/             hero, featured-stories, story-card, story-card-soon, access-callout
+  pages/              one folder per page, each with an index.html
+    home/  about/
+    story/            the-story/  the-journey/  the-tragedy/  (chapters)
+  components/         flat: one folder per page or area, no nesting
+    layout/  ui/      shared: header, footer, text-link, lovers, transcript
+    home/  story/  the-story/  the-journey/  the-tragedy/
   styles-config/      shared Sass: tokens/, base/, main.scss
+media/                video, audio and caption files
 scripts/
   build.js            bundles src/ into index.html (no libraries)
   router.js           runs in the browser, shows one page at a time via the URL hash
 ```
+
+Routes: `#/home`, `#/story` (opens `#/story/the-story`), `#/story/the-journey`, `#/story/the-tragedy`, `#/about`.
 
 ## Components
 
@@ -71,6 +75,10 @@ To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`
 link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
 
 Use tokens from `styles-config/tokens` in component styles: `@use 'styles-config/tokens' as *;`.
+
+## Media
+
+The story page expects `media/verona.mp4` and `media/finale.mp3`, which are not in the repo yet. Captions live in `media/verona.vtt`; transcripts are in the page content.
 
 ## Conventions
 
