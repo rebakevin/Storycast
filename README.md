@@ -30,7 +30,7 @@ npm run watch        # recompile Sass on save
 | File           | Generated from                                   |
 |----------------|--------------------------------------------------|
 | `index.html`   | `src/main.html`, `src/pages/`, `src/components/` |
-| `css/main.css` | `src/styles-config/`                                    |
+| `css/main.css` | `src/styles-config/`                             |
 
 Changes to these files are overwritten on the next build. Edit the sources in `src/`, run `npm run build`, and commit
 the output.
@@ -58,14 +58,17 @@ Every component is a pair of files in the same folder: `hero.html` and `_hero.sc
 Include a component with an `<include>` tag. Paths are relative to `src/`:
 
 ```html
+
 <include src="components/ui/text-link.html" href="#/story" label="Read the story"></include>
 ```
 
 Attributes fill `{{ href }}`-style placeholders inside the component. Pages and components can include other components.
 
-To add a component: create `name.html` and `_name.scss` in a components folder, include the HTML where it is used, and `@use` the SCSS in `src/styles-config/main.scss`.
+To add a component: create `name.html` and `_name.scss` in a components folder, include the HTML where it is used, and
+`@use` the SCSS in `src/styles-config/main.scss`.
 
-To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
+To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and
+link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
 
 Use tokens from `styles-config/tokens` in component styles: `@use 'styles-config/tokens' as *;`.
 
