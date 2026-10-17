@@ -3,6 +3,14 @@
 :focus-visible {
   outline: 3px solid $crimson;
   outline-offset: 3px;
+  // A paper halo keeps the ring visible on the dark (ink) sections too.
+  box-shadow: 0 0 0 6px $paper;
+}
+
+// Pages are focused after a route change so screen readers announce them; no ring needed.
+[tabindex='-1']:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .skip-link {

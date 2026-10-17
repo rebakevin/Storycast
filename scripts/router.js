@@ -1,5 +1,8 @@
 const pages = [...document.querySelectorAll('[data-page]')];
 const links = document.querySelectorAll('nav a[href^="#/"]');
+const main = document.getElementById('main');
+const baseTitle = document.title;
+let firstLoad = true;
 const menus = document.querySelectorAll('.chapter-menu');
 
 function isActive(route, current) {
@@ -38,7 +41,21 @@ function showPage() {
   });
 
   window.scrollTo(0, 0);
+  announcePage(current, firstLoad);
+}
+
+// The page never reloads, so tell assistive technology the "page" changed:
+// update the title and move focus to the new page's heading.
+function announcePage(current, firstLoad) {
+  const page = pages.find((item) => !item.hidden && item.dataset.page === current) ?? pages.find((item) => !item.hidden);
+  const heading = page?.querySelector('h1');
+  document.title = heading ? `${heading.textContent.replace(/\s+/g, ' ').trim()} – StoryCast` : baseTitle;
+  if (firstLoad) return;
+  const target = heading ?? main;
+  target.tabIndex = -1;
+  target.focus({ preventScroll: true });
 }
 
 window.addEventListener('hashchange', showPage);
 showPage();
+firstLoad = false;
