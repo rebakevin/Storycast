@@ -33,8 +33,15 @@
   }
 
   &__name {
+    color: $ink;
     font-size: 1.625rem;
     font-style: italic;
+    text-decoration-color: $crimson;
+    text-underline-offset: 0.375rem;
+
+    &:hover {
+      color: $crimson;
+    }
   }
 
   &__detail {

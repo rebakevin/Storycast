@@ -38,3 +38,12 @@
     }
   }
 }
+
+.houses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.25rem), 1fr));
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding-inline: $gutter;
+  border-top: $border;
+}
