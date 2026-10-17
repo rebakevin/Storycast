@@ -7,6 +7,7 @@
 @use 'components/ui/text-link';
 @use 'components/ui/lovers';
 @use 'components/ui/transcript';
+@use 'components/ui/synced-transcript';
 
 @use 'components/home/hero';
 @use 'components/home/featured-stories';
@@ -18,7 +19,7 @@
 @use 'components/story/chapter-next';
 
 @use 'components/the-story/story-hero';
-@use 'components/the-story/film';
+@use 'components/the-story/story-media';
 @use 'components/the-story/world';
 @use 'components/the-story/house';
 @use 'components/the-story/characters';
