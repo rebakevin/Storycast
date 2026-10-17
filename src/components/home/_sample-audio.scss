@@ -1,0 +1,22 @@
+@use 'sass/tokens' as *;
+
+.sample-audio {
+  display: grid;
+  justify-items: center;
+  gap: $space-s;
+  padding: clamp(2rem, 6vw, 4rem) $gutter 0;
+  text-align: center;
+
+  &__title {
+    font-size: clamp(1.5rem, 3.5vw, 2.375rem);
+    font-weight: 400;
+  }
+
+  &__summary {
+    font-family: $font-sans;
+  }
+
+  &__player {
+    width: min(100%, 32rem);
+  }
+}

@@ -1,43 +1,56 @@
-@use 'base/reset';
-@use 'base/accessibility';
+// Cascade layers, lowest to highest priority. Every rule lives in a layer, so a later layer
+// wins over an earlier one whatever the selector specificity.
+@use 'sass:meta';
 
-@use 'components/layout/site-header';
-@use 'components/layout/site-footer';
+@layer reset, base, layout, ui, components;
 
-@use 'components/ui/text-link';
-@use 'components/ui/lovers';
-@use 'components/ui/transcript';
-@use 'components/ui/synced-transcript';
+@layer reset {
+  @include meta.load-css('base/reset');
+}
 
-@use 'components/home/hero';
-@use 'components/home/ways';
-@use 'components/home/access-callout';
+@layer base {
+  @include meta.load-css('base/accessibility');
+}
 
-@use 'components/stories/library';
-@use 'components/stories/story-card';
+@layer layout {
+  @include meta.load-css('components/layout/site-header');
+  @include meta.load-css('components/layout/site-footer');
+}
 
-@use 'components/story/chapter-header';
-@use 'components/story/chapter-next';
-@use 'components/story/chapter-hero';
-@use 'components/story/story-hero';
-@use 'components/story/story-media';
-@use 'components/story/world';
-@use 'components/story/characters';
-@use 'components/story/character';
-@use 'components/story/moment';
-@use 'components/story/meaning';
-@use 'components/story/theme';
-@use 'components/story/transcript-page';
+@layer ui {
+  @include meta.load-css('components/ui/text-link');
+  @include meta.load-css('components/ui/lovers');
+  @include meta.load-css('components/ui/transcript');
+  @include meta.load-css('components/ui/synced-transcript');
+}
 
-@use 'components/romeo-and-juliet/house';
-@use 'components/romeo-and-juliet/journey-hero';
-@use 'components/romeo-and-juliet/scenes';
-@use 'components/romeo-and-juliet/scene';
-@use 'components/romeo-and-juliet/tragedy-hero';
-@use 'components/romeo-and-juliet/events';
-@use 'components/romeo-and-juliet/event';
-@use 'components/romeo-and-juliet/audio';
-@use 'components/romeo-and-juliet/ending';
-@use 'components/romeo-and-juliet/related-stories';
-
-@use 'components/about/about';
+@layer components {
+  @include meta.load-css('components/home/hero');
+  @include meta.load-css('components/home/ways');
+  @include meta.load-css('components/home/sample-audio');
+  @include meta.load-css('components/home/access-callout');
+  @include meta.load-css('components/stories/library');
+  @include meta.load-css('components/stories/story-card');
+  @include meta.load-css('components/story/chapter-header');
+  @include meta.load-css('components/story/chapter-next');
+  @include meta.load-css('components/story/chapter-hero');
+  @include meta.load-css('components/story/story-hero');
+  @include meta.load-css('components/story/story-media');
+  @include meta.load-css('components/story/world');
+  @include meta.load-css('components/story/characters');
+  @include meta.load-css('components/story/character');
+  @include meta.load-css('components/story/moment');
+  @include meta.load-css('components/story/meaning');
+  @include meta.load-css('components/story/theme');
+  @include meta.load-css('components/story/transcript-page');
+  @include meta.load-css('components/romeo-and-juliet/house');
+  @include meta.load-css('components/romeo-and-juliet/journey-hero');
+  @include meta.load-css('components/romeo-and-juliet/scenes');
+  @include meta.load-css('components/romeo-and-juliet/scene');
+  @include meta.load-css('components/romeo-and-juliet/tragedy-hero');
+  @include meta.load-css('components/romeo-and-juliet/events');
+  @include meta.load-css('components/romeo-and-juliet/event');
+  @include meta.load-css('components/romeo-and-juliet/ending');
+  @include meta.load-css('components/romeo-and-juliet/related-stories');
+  @include meta.load-css('components/about/about');
+}

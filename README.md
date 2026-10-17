@@ -37,7 +37,7 @@ transcripts so everyone can follow along.
 ├── src/         page and component source
 ├── scripts/     build, router and media scripts
 ├── design/      design reference
-└── docs/        site map and content structure
+└── Storycast – Technical Documentation.pdf   site map, IA and mockups
 ```
 
 ## Accessibility checklist
