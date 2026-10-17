@@ -24,4 +24,4 @@ yt-dlp ${cookies[@]+"${cookies[@]}"} \
   --output "media/$name" \
   "$url"
 
-echo "Saved to media/$name.$lang.vtt"
+echo "Captions saved in media/ (look for *.$lang.vtt)"

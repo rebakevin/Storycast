@@ -1,15 +1,37 @@
-// Watch / Listen / Read tabs for the story, plus a transcript that follows the video or audio.
-const root = document.querySelector('.story-media');
+// Watch / Listen / Read tabs for each story, plus a transcript that follows the video or audio.
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const instances = [...document.querySelectorAll('.story-media')].map(setUpStoryMedia);
 
-if (root) {
+// Stop playback when the reader leaves the page the media is on.
+window.addEventListener('hashchange', () => {
+  instances.forEach(({ root, pause }) => {
+    if (!root.offsetParent) pause();
+  });
+});
+
+// The YouTube IFrame API is loaded once, the first time any video is on screen.
+let youTubeApi = null;
+function loadYouTubeApi() {
+  youTubeApi ??= new Promise((resolve) => {
+    window.onYouTubeIframeAPIReady = () => resolve(window.YT);
+    const script = document.createElement('script');
+    script.src = 'https://www.youtube.com/iframe_api';
+    document.head.append(script);
+  });
+  return youTubeApi;
+}
+
+function setUpStoryMedia(root) {
   const tablist = root.querySelector('[role="tablist"]');
   const tabs = [...tablist.querySelectorAll('[role="tab"]')];
-  const panels = [...root.querySelectorAll('[role="tabpanel"]')];
-  const audio = root.querySelector('#story-audio');
-  const iframe = root.querySelector('#story-video');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
+  const audio = root.querySelector('audio');
+  const iframe = root.querySelector('iframe');
   let player = null; // YouTube player, once its API has loaded
+
+  const pause = () => {
+    audio.pause();
+    player?.pauseVideo?.();
+  };
 
   // ---- Tabs (the HTML shows every option until this script turns the tabs on)
   function selectTab(tab) {
@@ -19,8 +41,7 @@ if (root) {
       other.tabIndex = selected ? 0 : -1;
       document.getElementById(other.getAttribute('aria-controls')).hidden = !selected;
     });
-    audio.pause();
-    player?.pauseVideo?.();
+    pause();
   }
 
   tablist.hidden = false;
@@ -94,7 +115,7 @@ if (root) {
   }
 
   // ---- Audio
-  const highlightAudio = setUpTranscript(document.getElementById('panel-listen'), {
+  const highlightAudio = setUpTranscript(root.querySelector('[data-panel="listen"]'), {
     play: () => audio.play(),
     seek: (time) => (audio.currentTime = time),
   });
@@ -102,8 +123,8 @@ if (root) {
     audio.addEventListener(type, () => highlightAudio(audio.currentTime))
   );
 
-  // ---- Video (YouTube IFrame API, loaded when the video first scrolls into view)
-  const highlightVideo = setUpTranscript(document.getElementById('panel-watch'), {
+  // ---- Video
+  const highlightVideo = setUpTranscript(root.querySelector('[data-panel="watch"]'), {
     play: () => player?.playVideo?.(),
     seek: (time) => player?.seekTo?.(time, true),
   });
@@ -117,15 +138,14 @@ if (root) {
     }
   }
 
-  window.onYouTubeIframeAPIReady = () => {
-    player = new window.YT.Player(iframe, { events: { onStateChange: onPlayerState } });
-  };
-
+  // Start the player when the video first becomes visible (its page is hidden until visited).
   new IntersectionObserver((entries, observer) => {
     if (!entries.some((entry) => entry.isIntersecting)) return;
     observer.disconnect();
-    const script = document.createElement('script');
-    script.src = 'https://www.youtube.com/iframe_api';
-    document.head.append(script);
+    loadYouTubeApi().then((YT) => {
+      player = new YT.Player(iframe, { events: { onStateChange: onPlayerState } });
+    });
   }).observe(iframe);
+
+  return { root, pause };
 }
