@@ -1,7 +1,10 @@
 <div class="synced-transcript">
-  <button class="synced-transcript__toggle" type="button" aria-expanded="true" aria-controls="{{ id }}">
-    <span class="synced-transcript__label">Hide transcript</span>
-  </button>
+  <div class="synced-transcript__bar">
+    <button class="synced-transcript__toggle" type="button" aria-expanded="true" aria-controls="{{ id }}">
+      <span class="synced-transcript__label">Hide transcript</span>
+    </button>
+    <a class="synced-transcript__page" href="{{ pageHref }}">Read full transcript →</a>
+  </div>
   <div class="synced-transcript__body" id="{{ id }}" role="region" aria-label="Transcript" tabindex="0">
     <transcript src="{{ vtt }}"></transcript>
   </div>

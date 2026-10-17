@@ -3,6 +3,28 @@
 .synced-transcript {
   font-family: $font-sans;
 
+  &__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 $space-m;
+  }
+
+  &__page {
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-target;
+    color: $crimson;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.375rem;
+
+    &:hover {
+      color: $ink;
+    }
+  }
+
   &__toggle {
     display: inline-flex;
     align-items: center;
@@ -69,5 +91,22 @@
     border-left-color: $crimson;
     background: $paper;
     font-weight: 600;
+  }
+}
+
+// The transcript as plain paragraphs, with no timestamps (used on the transcript's own page).
+.reading {
+  max-width: 62ch;
+  padding: $space-xs 0.25rem;
+  font-family: $font-serif;
+
+  p {
+    margin-bottom: 1.25em;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
   }
 }
