@@ -6,7 +6,7 @@ watched, listened to or read, with captions and transcripts so everyone can foll
 ## Run the app
 
 - **Live site:** https://rebakevin.github.io/Storycast/
-- **Locally:** open `index.html` in a browser. No build is needed.
+- **Locally:** open `index.html` at the root in a browser. No build is needed.
 - **Developers:** serve the folder (the YouTube embed needs http, not a file):
 
   ```sh
