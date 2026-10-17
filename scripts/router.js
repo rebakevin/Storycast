@@ -41,12 +41,12 @@ function showPage() {
   });
 
   window.scrollTo(0, 0);
-  announcePage(current, firstLoad);
+  announcePage(current);
 }
 
 // The page never reloads, so tell assistive technology the "page" changed:
 // update the title and move focus to the new page's heading.
-function announcePage(current, firstLoad) {
+function announcePage(current) {
   const page = pages.find((item) => !item.hidden && item.dataset.page === current) ?? pages.find((item) => !item.hidden);
   const heading = page?.querySelector('h1');
   document.title = heading ? `${heading.textContent.replace(/\s+/g, ' ').trim()} – StoryCast` : baseTitle;

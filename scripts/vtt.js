@@ -10,8 +10,6 @@ function parseTiming(line) {
   return { start: seconds(h1, m1, s1, ms1), end: seconds(h2, m2, s2, ms2) };
 }
 
-module.exports = { parseTiming };
-
 const entities = { '&gt;': '>', '&lt;': '<', '&amp;': '&', '&quot;': '"', '&#39;': "'" };
 
 // Cleans leftovers of auto-generated captions: entities, speaker marks, [Music], stray spaces,
@@ -68,5 +66,4 @@ function toParagraphs(cues) {
   return paragraphs;
 }
 
-module.exports.tidyText = tidyText;
-module.exports.toParagraphs = toParagraphs;
+module.exports = { parseTiming, tidyText, toParagraphs };

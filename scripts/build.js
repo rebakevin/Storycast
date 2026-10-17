@@ -2,9 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const { parseTiming, tidyText, toParagraphs } = require('./vtt');
 
-const srcDir = path.join(__dirname, '..', 'src');
+const rootDir = path.join(__dirname, '..');
+const srcDir = path.join(rootDir, 'src');
 const includeTag = /<include\s+([^>]*?)\/?>(?:\s*<\/include>)?/g;
 const attribute = /([\w-]+)="([^"]*)"/g;
+const transcriptTag = /<transcript\s+src="([^"]+)"(?:\s+mode="(\w+)")?\s*><\/transcript>/g;
 
 function readAttributes(text) {
   const attributes = {};
@@ -13,8 +15,6 @@ function readAttributes(text) {
   }
   return attributes;
 }
-
-const transcriptTag = /<transcript\s+src="([^"]+)"(?:\s+mode="(\w+)")?\s*><\/transcript>/g;
 
 const escapeHtml = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -27,7 +27,7 @@ function formatTime(total) {
 // so the text is in the page without any script. scripts/story-media.js highlights the cue that is playing.
 function renderTranscript(file, mode) {
   const cues = fs
-    .readFileSync(path.join(__dirname, '..', file), 'utf8')
+    .readFileSync(path.join(rootDir, file), 'utf8')
     .split(/\n\n+/)
     .flatMap((block) => {
       const [timing, ...text] = block.split('\n');
@@ -35,17 +35,17 @@ function renderTranscript(file, mode) {
       return times ? [{ ...times, text: tidyText(text.join(' ')) }] : [];
     });
 
-  const items = cues.map(
-    ({ start, end, text }) =>
-      `<li class="cues__item" data-start="${start}" data-end="${end}">` +
-      `<button class="cues__cue" type="button"><span class="cues__time">${formatTime(start)}</span> ${escapeHtml(text)}</button></li>`
-  );
   // mode="text" is the plain paragraphs, for the transcript's own page.
   if (mode === 'text') {
     const paragraphs = toParagraphs(cues).map((text) => `<p>${escapeHtml(text)}</p>`);
     return `<div class="reading">${paragraphs.join('')}</div>`;
   }
 
+  const items = cues.map(
+    ({ start, end, text }) =>
+      `<li class="cues__item" data-start="${start}" data-end="${end}">` +
+      `<button class="cues__cue" type="button"><span class="cues__time">${formatTime(start)}</span> ${escapeHtml(text)}</button></li>`
+  );
   return `<ol class="cues">${items.join('')}</ol>`;
 }
 
@@ -64,5 +64,5 @@ function render(file, props = {}) {
     .replace(transcriptTag, (_, file, mode) => renderTranscript(file, mode));
 }
 
-fs.writeFileSync(path.join(__dirname, '..', 'index.html'), render('main.html'));
+fs.writeFileSync(path.join(rootDir, 'index.html'), render('main.html'));
 console.log('Built index.html');

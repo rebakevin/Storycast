@@ -16,10 +16,11 @@ const lines = [];
 // Blocks end at a truly empty line; the " " filler lines inside a block are not blank.
 for (const block of fs.readFileSync(input, 'utf8').split(/\n(?=\n)/)) {
   const rows = block.replace(/^\n/, '').split('\n');
-  const at = rows.findIndex((row) => parseTiming(row));
+  const times = rows.map(parseTiming);
+  const at = times.findIndex(Boolean);
   if (at === -1) continue;
 
-  const { start, end } = parseTiming(rows[at]);
+  const { start, end } = times[at];
   const text = rows
     .slice(at + 1)
     .map((row) => row.replace(/<[^>]+>/g, '').trim())
