@@ -30,7 +30,7 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - run: mkdir -p _site/scripts && cp -r index.html css media _site && cp scripts/router.js _site/scripts
+      - run: mkdir -p _site/scripts && cp -r index.html css media _site && cp scripts/router.js scripts/story-media.js _site/scripts
 
       - uses: actions/upload-pages-artifact@v5
         with:
