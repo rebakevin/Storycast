@@ -1,4 +1,4 @@
-@use 'styles-config/tokens' as *;
+@use 'sass/tokens' as *;
 
 .related-stories {
   padding: clamp(2rem, 6vw, 4.5rem) $gutter;

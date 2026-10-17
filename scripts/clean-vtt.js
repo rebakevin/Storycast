@@ -1,6 +1,6 @@
 // Turns a YouTube auto-caption .vtt (rolling, word-timed, duplicated lines)
 // into a clean .vtt with one readable cue per few seconds.
-// Usage: node scripts/clean-vtt.js media/in.en.vtt media/out.vtt
+// Usage: node scripts/clean-vtt.js assets/in.en.vtt assets/out.vtt
 const fs = require('fs');
 const { parseTiming } = require('./vtt');
 

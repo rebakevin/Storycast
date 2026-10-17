@@ -1,4 +1,4 @@
-@use 'styles-config/tokens' as *;
+@use 'sass/tokens' as *;
 
 .event {
   padding-block: clamp(1.75rem, 5vw, 3.5rem);

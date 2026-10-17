@@ -23,7 +23,7 @@ function formatTime(total) {
   return `${minutes}:${String(Math.floor(total % 60)).padStart(2, '0')}`;
 }
 
-// <transcript src="media/x.vtt"> (or with mode="text") becomes a list of timed cues,
+// <transcript src="assets/x.vtt"> (or with mode="text") becomes a list of timed cues,
 // so the text is in the page without any script. scripts/story-media.js highlights the cue that is playing.
 function renderTranscript(file, mode) {
   const cues = fs

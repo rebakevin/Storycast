@@ -34,7 +34,7 @@ npm run watch        # recompile Sass on save
 | File           | Generated from                                   |
 |----------------|--------------------------------------------------|
 | `index.html`   | `src/main.html`, `src/pages/`, `src/components/` |
-| `css/main.css` | `src/styles-config/`                             |
+| `css/main.css` | `sass/`, `src/components/**/_*.scss`            |
 
 Changes to these files are overwritten on the next build. Edit the sources in `src/`, run `npm run build`, and commit
 the output.
@@ -42,6 +42,10 @@ the output.
 ## Structure
 
 ```
+index.html            built site (generated)
+css/                  compiled styles (generated)
+sass/                 Sass source: tokens/, base/, main.scss
+assets/               audio (.mp3) and transcripts (.vtt)
 src/
   main.html           template: head, header, pages, footer
   pages/              one folder per page, each with an index.html
@@ -56,8 +60,6 @@ src/
     story/            shared by every story: story-hero, story-media, world, characters,
                       chapter-hero, moment, chapter-header styles, chapter-next
     romeo-and-juliet/  the-odyssey/  the-great-gatsby/   content that belongs to one story
-  styles-config/      shared Sass: tokens/, base/, main.scss
-media/                video, audio and caption files
 scripts/
   build.js            bundles src/ into index.html (no libraries)
   router.js           runs in the browser, shows one page at a time via the URL hash
@@ -84,26 +86,26 @@ Include a component with an `<include>` tag. Paths are relative to `src/`:
 Attributes fill `{{ href }}`-style placeholders inside the component. Pages and components can include other components.
 
 To add a component: create `name.html` and `_name.scss` in a components folder, include the HTML where it is used, and
-`@use` the SCSS in `src/styles-config/main.scss`.
+`@use` the SCSS in `sass/main.scss`.
 
 To add a page: create `src/pages/foo/index.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and
 link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
 
 ### Add a story
 
-1. Put the audio in `media/<story>.mp3` and the captions in `media/<story>.vtt` (see *Media* below).
+1. Put the audio in `assets/<story>.mp3` and the captions in `assets/<story>.vtt` (see *Media* below).
 2. Create `src/pages/story/<story>/index.html` (a `data-page="story/<story>"` wrapper that includes the header and each
    chapter) and one `index.html` per chapter folder, named `story/<story>/<chapter>`. Copy an existing story. The first
    chapter must be `the-story`: it is what opens when the story is chosen.
 3. Create `src/components/<story>/` with the story's `chapter-header.html`, `characters.html` and one component per chapter,
    reusing the shared pieces in `components/story/`.
 4. Include the story page in `src/main.html`, add a card to `components/stories/library.html`, and `@use` any new SCSS
-   in `src/styles-config/main.scss`.
+   in `sass/main.scss`.
 
 The chapter header lists every chapter. With more than three, put the extras inside the `<details class="chapter-menu">`
 (see `components/the-odyssey/chapter-header.html`) and they appear under a "More chapters" dropdown.
 
-Use tokens from `styles-config/tokens` in component styles: `@use 'styles-config/tokens' as *;`.
+Use tokens from `sass/tokens` in component styles: `@use 'sass/tokens' as *;`.
 
 ## Deploy
 
@@ -116,13 +118,13 @@ One-time setup: in the repo go to **Settings → Pages** and set **Source** to *
 Each story's page offers three ways in (Watch, Listen, Read), built by `src/components/story/story-media.html`:
 
 - **Watch** embeds the YouTube video.
-- **Listen** plays `media/<story>.mp3`.
+- **Listen** plays `assets/<story>.mp3`.
 - **Read** is a written summary.
 
-Watch and Listen share the transcript `media/<story>.vtt`. It is written into `index.html` at build time, as timed lines
+Watch and Listen share the transcript `assets/<story>.vtt`. It is written into `index.html` at build time, as timed lines
 (and as plain paragraphs on the `text-transcripts` page), and `scripts/story-media.js` highlights
 the line being played. The YouTube embed needs the site served over http (see
-`npx serve .` above), not opened as a file. The Tragedy chapter of Romeo & Juliet still expects `media/finale.mp3`, which
+`npx serve .` above), not opened as a file. The Tragedy chapter of Romeo & Juliet still expects `assets/finale.mp3`, which
 is not in the repo yet.
 
 ### Download captions from YouTube
@@ -135,15 +137,15 @@ scripts/yt-transcript.sh "<youtube-url>" [output-name] [lang]
 scripts/yt-transcript.sh "https://www.youtube.com/watch?v=VIDEO_ID" the-odyssey
 ```
 
-It saves `media/<output-name>.<lang>.vtt` (language defaults to `en`). Manual captions are preferred, with
+It saves `assets/<output-name>.<lang>.vtt` (language defaults to `en`). Manual captions are preferred, with
 auto-generated ones as a fallback. Auto-generated files repeat lines, so clean the result and review it before publishing:
 
 ```sh
-node scripts/clean-vtt.js media/the-odyssey.en.vtt media/the-odyssey.vtt
+node scripts/clean-vtt.js assets/the-odyssey.en.vtt assets/the-odyssey.vtt
 ```
 
 ## Conventions
 
 - Class names follow BEM (`story-card__title`, `story-card--available`).
-- Use tokens from `styles-config/tokens/` instead of hardcoded colors or spacing.
+- Use tokens from `sass/tokens/` instead of hardcoded colors or spacing.
 - Meet WCAG 2.1 AA: visible focus, keyboard support, captions and transcripts for any audio/video.

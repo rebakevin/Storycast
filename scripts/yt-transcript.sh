@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Download a YouTube video's English transcript as a .vtt file.
 # Usage: scripts/yt-transcript.sh <youtube-url> [output-name] [lang]
-# Output: media/<output-name>.vtt (default name: the video id)
+# Output: assets/<output-name>.vtt (default name: the video id)
 set -euo pipefail
 
 url="${1:?Usage: $0 <youtube-url> [output-name] [lang]}"
@@ -21,7 +21,7 @@ yt-dlp ${cookies[@]+"${cookies[@]}"} \
   --write-subs --write-auto-subs \
   --sub-langs "$lang" \
   --sub-format vtt \
-  --output "media/$name" \
+  --output "assets/$name" \
   "$url"
 
-echo "Captions saved in media/ (look for *.$lang.vtt)"
+echo "Captions saved in assets/ (look for *.$lang.vtt)"
