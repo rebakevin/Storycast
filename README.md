@@ -1,7 +1,8 @@
 # StoryCast
 
-StoryCast retells classic stories (starting with *Romeo & Juliet*) as chapters, film and audio. Every story can be
-watched, listened to or read, with captions and transcripts so everyone can follow along.
+StoryCast retells classic stories as chapters, film and audio. It currently features *Romeo & Juliet*, *The Odyssey*
+and *The Great Gatsby*, with more to come. Every story can be watched, listened to or read, with captions and
+transcripts so everyone can follow along.
 
 ## How to run the app
 
