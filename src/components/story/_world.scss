@@ -24,11 +24,4 @@
     font-size: clamp(1.25rem, 2.2vw, 1.5625rem);
     line-height: 1.5;
   }
-
-  &__houses {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.25rem), 1fr));
-    grid-column: 1 / -1;
-    border-top: $border;
-  }
 }

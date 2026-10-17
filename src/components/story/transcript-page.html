@@ -1,0 +1,8 @@
+<article class="transcript-page" aria-labelledby="transcript-page-title-{{ slug }}">
+  <a class="transcript-page__back" href="#/story/{{ slug }}/the-story"><span aria-hidden="true">←</span> Back to the story</a>
+  <p class="transcript-page__eyebrow">Full transcript</p>
+  <h1 class="transcript-page__title" id="transcript-page-title-{{ slug }}">{{ title }}</h1>
+  <p class="transcript-page__note">Written from the captions of the video by {{ credit }}. Auto-generated captions can contain small mistakes.</p>
+  <transcript src="{{ vtt }}" mode="text"></transcript>
+  <include src="components/ui/text-link.html" href="#/story/{{ slug }}/the-story" label="← Back to the story"></include>
+</article>

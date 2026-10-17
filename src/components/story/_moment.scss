@@ -1,0 +1,45 @@
+@use 'styles-config/tokens' as *;
+
+.moments {
+  max-width: 68.75rem;
+  margin-inline: auto;
+  padding: 0 $gutter $section-padding;
+  border-bottom: $border;
+}
+
+.moment {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.25rem), 1fr));
+  gap: $space-xs clamp(1.25rem, 5vw, 4rem);
+  padding-block: $space-l;
+  border-top: $border;
+
+  &__number {
+    color: $gold;
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+  }
+
+  &__title {
+    margin-block: 0.25rem 0.5rem;
+    color: $crimson;
+    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+    line-height: 1.1;
+  }
+
+  &__caption {
+    color: $ink-soft;
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    max-width: 52ch;
+    font-size: clamp(1.25rem, 2vw, 1.4375rem);
+    line-height: 1.5;
+  }
+}

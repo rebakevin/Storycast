@@ -1,0 +1,60 @@
+@use 'styles-config/tokens' as *;
+
+.transcript-page {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 4rem) $gutter clamp(3rem, 8vw, 6rem);
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: $tap-target;
+    color: $crimson;
+    font-family: $font-sans;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $ink;
+      text-decoration: underline;
+      text-underline-offset: 0.375rem;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+    margin-top: $space-m;
+    color: $gold;
+  }
+
+  &__title {
+    margin-block: $space-xs $space-s;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.05;
+  }
+
+  &__note {
+    margin-bottom: $space-l;
+    padding-bottom: $space-m;
+    border-bottom: $border;
+    color: $ink-soft;
+    font-family: $font-sans;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .reading {
+    max-width: none;
+    padding: 0;
+    margin-bottom: $space-l;
+
+    p {
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      line-height: 1.65;
+    }
+  }
+}

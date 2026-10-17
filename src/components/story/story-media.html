@@ -1,0 +1,41 @@
+<section class="story-media" aria-labelledby="media-title-{{ slug }}">
+  <header class="story-media__header">
+    <p class="story-media__eyebrow">Choose how to take it in · {{ minutes }} min</p>
+    <h2 class="story-media__title" id="media-title-{{ slug }}">Watch, listen or <em>read</em></h2>
+    <p class="story-media__summary">Every option has a full transcript.</p>
+  </header>
+
+  <div class="story-media__tabs" role="tablist" aria-label="How to follow the story" hidden>
+    <button class="story-media__tab" id="tab-watch-{{ slug }}" type="button" role="tab" aria-selected="true" aria-controls="panel-watch-{{ slug }}">Watch</button>
+    <button class="story-media__tab" id="tab-listen-{{ slug }}" type="button" role="tab" aria-selected="false" aria-controls="panel-listen-{{ slug }}" tabindex="-1">Listen</button>
+    <button class="story-media__tab" id="tab-read-{{ slug }}" type="button" role="tab" aria-selected="false" aria-controls="panel-read-{{ slug }}" tabindex="-1">Read</button>
+  </div>
+
+  <div class="story-media__panel" id="panel-watch-{{ slug }}" data-panel="watch" role="tabpanel" aria-labelledby="tab-watch-{{ slug }}">
+    <h3 class="story-media__panel-title">Watch the video</h3>
+    <div class="story-media__frame">
+      <iframe class="story-media__video"
+        src="https://www.youtube-nocookie.com/embed/{{ youtube }}?enablejsapi=1&amp;rel=0&amp;playsinline=1"
+        title="{{ title }} summary video"
+        loading="lazy"
+        allow="accelerometer; encrypted-media; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="story-media__credit">Video and audio: {{ credit }}.</p>
+    <include src="components/ui/synced-transcript.html" id="transcript-watch-{{ slug }}" vtt="{{ vtt }}" pageHref="#/story/{{ slug }}/text-transcripts"></include>
+  </div>
+
+  <div class="story-media__panel" id="panel-listen-{{ slug }}" data-panel="listen" role="tabpanel" aria-labelledby="tab-listen-{{ slug }}">
+    <h3 class="story-media__panel-title">Listen to the audio</h3>
+    <audio class="story-media__audio" controls preload="none" src="{{ audio }}">
+      Your browser does not support audio.
+    </audio>
+    <include src="components/ui/synced-transcript.html" id="transcript-listen-{{ slug }}" vtt="{{ vtt }}" pageHref="#/story/{{ slug }}/text-transcripts"></include>
+  </div>
+
+  <div class="story-media__panel" id="panel-read-{{ slug }}" data-panel="read" role="tabpanel" aria-labelledby="tab-read-{{ slug }}">
+    <h3 class="story-media__panel-title">Read the summary</h3>
+    <p class="story-media__read">{{ read }}</p>
+    <include src="components/ui/text-link.html" href="{{ nextHref }}" label="{{ nextLabel }}"></include>
+  </div>
+</section>

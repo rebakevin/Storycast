@@ -1,0 +1,27 @@
+@use 'styles-config/tokens' as *;
+
+.story-hero {
+  display: grid;
+  justify-items: center;
+  gap: $space-m;
+  padding: clamp(3rem, 9vw, 7rem) $gutter clamp(2rem, 6vw, 4rem);
+  border-bottom: $border;
+  text-align: center;
+
+  &__eyebrow {
+    @include eyebrow;
+    color: $gold;
+  }
+
+  &__title {
+    font-size: clamp(3rem, 11vw, 8.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+
+  &__tagline {
+    max-width: 34ch;
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    line-height: 1.35;
+  }
+}
