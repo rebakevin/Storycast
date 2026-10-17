@@ -1,0 +1,73 @@
+@use 'styles-config/tokens' as *;
+
+.synced-transcript {
+  font-family: $font-sans;
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-target;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $crimson;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.375rem;
+    cursor: pointer;
+  }
+
+  &__body {
+    max-height: 20rem;
+    overflow-y: auto;
+    padding: $space-xs $space-s;
+    border: $border;
+    background: $paper-deep;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
+.cues {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__cue {
+    display: block;
+    width: 100%;
+    min-height: $tap-target;
+    padding: 0.5rem 0.75rem;
+    border: 0;
+    border-left: 4px solid transparent;
+    background: none;
+    color: $ink;
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.55;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+      background: $paper;
+    }
+  }
+
+  &__time {
+    margin-right: 0.5rem;
+    color: $ink-soft;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__item.is-active &__cue {
+    border-left-color: $crimson;
+    background: $paper;
+    font-weight: 600;
+  }
+}
