@@ -3,7 +3,7 @@
 StoryCast retells classic stories (starting with *Romeo & Juliet*) as chapters, film and audio. Every story can be
 watched, listened to or read, with captions and transcripts so everyone can follow along.
 
-## Run the app
+## How to run the app
 
 - **Live site:** https://rebakevin.github.io/Storycast/
 - **Locally:** open `index.html` at the root in a browser. No build is needed.
