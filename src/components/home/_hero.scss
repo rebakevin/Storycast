@@ -2,12 +2,11 @@
 
 .hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
-  gap: $space-l clamp(1.5rem, 5vw, 4.5rem);
-  align-items: center;
+  justify-items: center;
   max-width: $content-width;
   margin-inline: auto;
   padding: $section-padding $gutter;
+  text-align: center;
 
   &__eyebrow {
     @include eyebrow;
@@ -16,7 +15,7 @@
   }
 
   &__title {
-    font-size: clamp(3.25rem, 11vw, 8rem);
+    font-size: clamp(3.5rem, 13vw, 9.375rem);
     line-height: 0.95;
   }
 
