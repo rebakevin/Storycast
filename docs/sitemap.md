@@ -4,7 +4,7 @@ Pages and routes. Every story follows the same pattern: a story home (`the-story
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "step", "nodeSpacing": 30, "rankSpacing": 50}}}%%
-flowchart TD
+flowchart LR
     ROOT["StoryCast"]
 
     ROOT --> HOME["Home<br/>#/home"]
