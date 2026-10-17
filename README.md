@@ -55,6 +55,9 @@ media/                video, audio and caption files
 scripts/
   build.js            bundles src/ into index.html (no libraries)
   router.js           runs in the browser, shows one page at a time via the URL hash
+  story-media.js      Watch/Listen/Read tabs and the synced transcript
+  clean-vtt.js        cleans a YouTube auto-caption .vtt
+  yt-transcript.sh    downloads YouTube captions with yt-dlp
 ```
 
 Routes: `#/home`, `#/story` (opens `#/story/the-story`), `#/story/the-journey`, `#/story/the-tragedy`, `#/about`.
@@ -88,7 +91,33 @@ One-time setup: in the repo go to **Settings → Pages** and set **Source** to *
 
 ## Media
 
-The story page expects `media/verona.mp4` and `media/finale.mp3`, which are not in the repo yet. Captions live in `media/verona.vtt`; transcripts are in the page content.
+The story page has three ways in (Watch, Listen, Read), built in `src/components/the-story/story-media.html`:
+
+- **Watch** embeds the YouTube video (`dRrvQ1vZxcg`).
+- **Listen** plays `media/romeo-and-juliet.mp3`.
+- **Read** is a written summary.
+
+Watch and Listen share the transcript `media/romeo-and-juliet.vtt`. It is written into `index.html` at build time and
+`scripts/story-media.js` highlights the line being played. The YouTube embed needs the site served over http (see
+`npx serve .` above), not opened as a file. The Tragedy chapter still expects `media/finale.mp3`, which is not in the repo
+yet.
+
+### Download captions from YouTube
+
+Requires [yt-dlp](https://github.com/yt-dlp/yt-dlp) (`brew install yt-dlp`). Run from the project root:
+
+```sh
+scripts/yt-transcript.sh "<youtube-url>" [output-name] [lang]
+
+scripts/yt-transcript.sh "https://www.youtube.com/watch?v=VIDEO_ID" verona
+```
+
+It saves `media/<output-name>.<lang>.vtt` (language defaults to `en`). Manual captions are preferred, with
+auto-generated ones as a fallback. Auto-generated files repeat lines, so clean the result and review it before publishing:
+
+```sh
+node scripts/clean-vtt.js media/romeo-and-juliet.en.vtt media/romeo-and-juliet.vtt
+```
 
 ## Conventions
 
