@@ -41,27 +41,12 @@ watched, listened to or read, with captions and transcripts so everyone can foll
 
 ## Accessibility checklist
 
-- [x] **WCAG 2.1 AA** as the target
-- [x] **Screen readers**
-    - [x] Semantic HTML with `lang="en"` and landmarks (`header`, `nav`, `main`, `footer`)
-    - [x] Real buttons and links, so the control and its name are read out
-    - [x] Labelled navigation regions (site menu, chapter menus) and a titled video frame
-    - [x] Tabs expose their role and selected state (`role="tab"`, `aria-selected`)
-    - [x] Page changes announced when navigating
-    - [x] "Skip to content" link
-- [x] **Keyboard**
-    - [x] Everything reachable and usable by keyboard
-    - [x] Watch/Listen/Read tabs operable with arrow keys
-    - [x] Visible focus styles
-- [x] **Ways to follow the story** (no one format is required)
-    - [x] Listen: audio-only version with native, labelled player controls, for people who can't see the video
-    - [x] Watch: captioned video, for people who can't hear
-    - [x] Read: written summary and full text transcripts, for people who prefer or need text
-    - [x] Transcript synced with the audio and video
-- [x] **Responsiveness**
-    - [x] Mobile: single-column, mobile-first layout
-    - [x] Larger screens: wider layout from 40rem (tablet and desktop)
-- [x] **Motion**
-    - [x] Reduced motion respected (`prefers-reduced-motion`)
-- [x] **Design**
-    - [x] Colours and spacing from shared design tokens
+- [x] Meets WCAG 2.1 AA as the target
+- [x] Semantic HTML with `lang="en"` and a "Skip to content" link
+- [x] Full keyboard support, including the Watch/Listen/Read tabs
+- [x] Visible focus styles on all interactive elements
+- [x] Page changes are announced to assistive technologies
+- [x] Captions and transcripts for all audio and video
+- [x] Responsive layout that works on mobile, tablet and desktop
+- [x] Reduced motion respected (`prefers-reduced-motion`)
+- [x] Colours and spacing come from shared design tokens
