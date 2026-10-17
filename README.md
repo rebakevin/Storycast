@@ -3,7 +3,7 @@
 StoryCast retells classic stories (starting with *Romeo & Juliet*) as chapters, film and audio, with captions and
 transcripts so every reader and listener can follow along.
 
-Plain HTML and Sass, no framework. Design reference: `design/`, site map: `docs/ia.md`.
+Plain HTML and Sass, no framework. Design reference: `design/`, site map: `docs/sitemap.md`, content structure: `docs/ia.md`.
 
 ## Run the app
 
@@ -45,11 +45,17 @@ the output.
 src/
   main.html           template: head, header, pages, footer
   pages/              one folder per page, each with an index.html
-    home/  about/
-    story/            the-story/  the-journey/  the-tragedy/  (chapters)
+    home/  stories/  about/
+    story/            one folder per story, each with its chapters:
+      romeo-and-juliet/  the-story/  the-journey/  the-tragedy/
+      the-odyssey/       the-story/  wrong-turns/  circe-and-the-dead/  deadly-waters/  the-return/
+      the-great-gatsby/  the-story/  the-summer/  the-reckoning/
   components/         flat: one folder per page or area, no nesting
-    layout/  ui/      shared: header, footer, text-link, lovers, transcript
-    home/  about/  story/  the-story/  the-journey/  the-tragedy/
+    layout/  ui/      shared: header, footer, text-link, lovers, transcripts
+    home/  stories/   welcome page, story library and cards
+    story/            shared by every story: story-hero, story-media, world, characters,
+                      chapter-hero, moment, chapter-header styles, chapter-next
+    romeo-and-juliet/  the-odyssey/  the-great-gatsby/   content that belongs to one story
   styles-config/      shared Sass: tokens/, base/, main.scss
 media/                video, audio and caption files
 scripts/
@@ -60,7 +66,9 @@ scripts/
   yt-transcript.sh    downloads YouTube captions with yt-dlp
 ```
 
-Routes: `#/home`, `#/story` (opens `#/story/the-story`), `#/story/the-journey`, `#/story/the-tragedy`, `#/about`.
+Routes: `#/home`, `#/stories`, `#/about`, and for each story `#/story/<story>` (opens its `the-story` page) and
+`#/story/<story>/<chapter>`. Each story also has `#/story/<story>/text-transcripts`, its full transcript as plain
+paragraphs on its own page (linked from the transcript box, not listed in the chapter menu).
 
 ## Components
 
@@ -78,8 +86,22 @@ Attributes fill `{{ href }}`-style placeholders inside the component. Pages and 
 To add a component: create `name.html` and `_name.scss` in a components folder, include the HTML where it is used, and
 `@use` the SCSS in `src/styles-config/main.scss`.
 
-To add a page: create `src/pages/foo.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and
+To add a page: create `src/pages/foo/index.html` with a `<div data-page="foo" hidden>`, include it in `src/main.html`, and
 link to `#/foo`. Pages only compose components, so they have no SCSS of their own.
+
+### Add a story
+
+1. Put the audio in `media/<story>.mp3` and the captions in `media/<story>.vtt` (see *Media* below).
+2. Create `src/pages/story/<story>/index.html` (a `data-page="story/<story>"` wrapper that includes the header and each
+   chapter) and one `index.html` per chapter folder, named `story/<story>/<chapter>`. Copy an existing story. The first
+   chapter must be `the-story`: it is what opens when the story is chosen.
+3. Create `src/components/<story>/` with the story's `chapter-header.html`, `characters.html` and one component per chapter,
+   reusing the shared pieces in `components/story/`.
+4. Include the story page in `src/main.html`, add a card to `components/stories/library.html`, and `@use` any new SCSS
+   in `src/styles-config/main.scss`.
+
+The chapter header lists every chapter. With more than three, put the extras inside the `<details class="chapter-menu">`
+(see `components/the-odyssey/chapter-header.html`) and they appear under a "More chapters" dropdown.
 
 Use tokens from `styles-config/tokens` in component styles: `@use 'styles-config/tokens' as *;`.
 
@@ -91,16 +113,17 @@ One-time setup: in the repo go to **Settings → Pages** and set **Source** to *
 
 ## Media
 
-The story page has three ways in (Watch, Listen, Read), built in `src/components/the-story/story-media.html`:
+Each story's page offers three ways in (Watch, Listen, Read), built by `src/components/story/story-media.html`:
 
-- **Watch** embeds the YouTube video (`dRrvQ1vZxcg`).
-- **Listen** plays `media/romeo-and-juliet.mp3`.
+- **Watch** embeds the YouTube video.
+- **Listen** plays `media/<story>.mp3`.
 - **Read** is a written summary.
 
-Watch and Listen share the transcript `media/romeo-and-juliet.vtt`. It is written into `index.html` at build time and
-`scripts/story-media.js` highlights the line being played. The YouTube embed needs the site served over http (see
-`npx serve .` above), not opened as a file. The Tragedy chapter still expects `media/finale.mp3`, which is not in the repo
-yet.
+Watch and Listen share the transcript `media/<story>.vtt`. It is written into `index.html` at build time, as timed lines
+(and as plain paragraphs on the `text-transcripts` page), and `scripts/story-media.js` highlights
+the line being played. The YouTube embed needs the site served over http (see
+`npx serve .` above), not opened as a file. The Tragedy chapter of Romeo & Juliet still expects `media/finale.mp3`, which
+is not in the repo yet.
 
 ### Download captions from YouTube
 
@@ -109,14 +132,14 @@ Requires [yt-dlp](https://github.com/yt-dlp/yt-dlp) (`brew install yt-dlp`). Run
 ```sh
 scripts/yt-transcript.sh "<youtube-url>" [output-name] [lang]
 
-scripts/yt-transcript.sh "https://www.youtube.com/watch?v=VIDEO_ID" verona
+scripts/yt-transcript.sh "https://www.youtube.com/watch?v=VIDEO_ID" the-odyssey
 ```
 
 It saves `media/<output-name>.<lang>.vtt` (language defaults to `en`). Manual captions are preferred, with
 auto-generated ones as a fallback. Auto-generated files repeat lines, so clean the result and review it before publishing:
 
 ```sh
-node scripts/clean-vtt.js media/romeo-and-juliet.en.vtt media/romeo-and-juliet.vtt
+node scripts/clean-vtt.js media/the-odyssey.en.vtt media/the-odyssey.vtt
 ```
 
 ## Conventions
